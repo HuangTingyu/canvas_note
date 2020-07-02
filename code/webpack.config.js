@@ -13,8 +13,7 @@ module.exports = {
   devServer:{
     contentBase:'./dist',
     open:true,
-    hot:true,
-    hotOnly:true
+    hot:true
   },
   module: {
     rules: [{

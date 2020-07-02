@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+html, body {
+  height: 100%;
+  width: 100%;
+}
+canvas {
+  display: block;
+  margin: 0 auto;
+  /* background: #eeeeee; */
+  border:dashed 2px gray;
+}

@@ -1,0 +1,11 @@
+var cnv = $('#canvas')[0]
+var cxt = cnv.getContext('2d')
+// cxt.moveTo(50, 50)
+// cxt.lineTo(100, 50)
+// cxt.moveTo(50, 100)
+// cxt.lineTo(100, 100)
+cxt.moveTo(50, 100)
+cxt.lineTo(150, 50)
+cxt.lineTo(150, 100)
+cxt.lineTo(50, 100)
+cxt.stroke()
