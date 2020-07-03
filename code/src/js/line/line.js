@@ -1,5 +1,5 @@
 // require('./basisLine.js')
-// require('./basisRect.js')
+require('./basisRect.js')
 // require('./basisiCircle.js')
 // require('./sector.js')
-require('./lineAttr.js')
+// require('./lineAttr.js')

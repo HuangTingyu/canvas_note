@@ -36,6 +36,19 @@ cxt.stroke()
 
 strokeRect(x,y,width,height) - x, y是左上角的坐标
 
+#### 虚线
+
+- setLineDash(array) - 设置虚线样式
+
+setLineDash([10, 5]) - 10px实线 + 5px虚线循环
+
+```
+......
+cxt.strokeStyle = 'red'
+cxt.setLineDash([10, 5])
+cxt.strokeRect(50, 50, 80, 80)
+```
+
 #### 填充
 
 - fillStyle - 填充颜色

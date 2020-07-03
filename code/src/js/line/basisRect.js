@@ -6,6 +6,7 @@ $('#btn').bind('click', function(){
     cxt.clearRect(0, 0, cnv.width, cnv.height)
 })
 cxt.strokeStyle = 'red'
+cxt.setLineDash([10, 5])
 cxt.strokeRect(50, 50, 80, 80)
-cxt.fillStyle = 'pink'
-cxt.fillRect(50, 50, 80, 80)
+// cxt.fillStyle = 'pink'
+// cxt.fillRect(50, 50, 80, 80)
