@@ -18,7 +18,8 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.css'],
     alias: {
-      'js': path.resolve(__dirname, './src/js')
+      'js': path.resolve(__dirname, './src/js'),
+      'assets': path.resolve(__dirname, './src/assets'),
     }
   },
   module: {
