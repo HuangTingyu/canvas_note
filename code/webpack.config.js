@@ -15,6 +15,12 @@ module.exports = {
     open:true,
     hot:true
   },
+  resolve: {
+    extensions: ['.js', '.css'],
+    alias: {
+      'js': path.resolve(__dirname, './src/js')
+    }
+  },
   module: {
     rules: [{
         test: /\.(jpg|png|gif)$/,
@@ -23,7 +29,6 @@ module.exports = {
             // placeholder占位符
             options: {
                 name: '[name]_[hash].[ext]',
-                outputPath: 'images/',
                 limit: 20480
             }
         }
