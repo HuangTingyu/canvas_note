@@ -31,17 +31,17 @@ $('#canvas').mousemove(function(e){
     } else if (x_mouse >= boundary_x){
         $('.canvas_wrap').css('left', boundary_x + 'px')
     } else if (x_mouse <= 50){
-        $('.canvas_wrap').css('left', 0 + 'px') 
+        $('.canvas_wrap').css('left', x_mouse + 'px') 
     }
     
     if(y_mouse > 100 && y_mouse < boundary_y) {
         $('.canvas_wrap').css('top', wrap_top + 'px')
-    } else if (x_mouse >= boundary_x){
-        $('.canvas_wrap').css('top', boundary_y + 'px')
-    } else if (y_mouse <=100){
-        $('.canvas_wrap').css('top', 0 + 'px') 
+    } else if (y_mouse >= boundary_y){
+        $('.canvas_wrap').css('top', 200 + 'px')
+    } 
+    else if (y_mouse <=100){
+        $('.canvas_wrap').css('top', y_mouse + 'px') 
     }
-    
 })
 
 $('#canvas').mouseout(function (e) {
