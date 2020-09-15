@@ -8,7 +8,22 @@ html, body {
 }
 canvas {
   display: block;
-  margin: 0 auto;
   /* background: #eeeeee; */
   border:dashed 2px gray;
+}
+
+.canvas_container{
+  position: relative;
+}
+
+.canvas_wrap{
+  position: absolute;
+  width:100px;
+  height:200px;
+  background-color: black;
+  top:0;
+  left:0;
+  opacity: 0.5;
+  z-index:999;
+  cursor: move;
 }
