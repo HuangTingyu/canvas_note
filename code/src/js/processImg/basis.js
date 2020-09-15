@@ -18,29 +18,46 @@ $('.canvas_wrap').mouseover(function(){
     $('#canvas').css('opacity', '0.5')  
 })
 
-$('#canvas').mousemove(function(e){
+$('.canvas_wrap').mousemove(function(e){
+    let canvas_width = $('#canvas').width()
+    let canvas_height=$('#canvas').height()
+
+    let wrap_width = $('.canvas_wrap').width()
+    let wrap_height = $('.canvas_wrap').height()
+
     let x_mouse = e.pageX
-    let y_mouse = e.pageY
-    let wrap_left = x_mouse - 50
-    let wrap_top = y_mouse - 100
-    let boundary_x = $('#canvas').width() - $('.canvas_wrap').width()
-    let boundary_y = $('#canvas').height() - $('.canvas_wrap').height() 
+    let wrap_left = x_mouse - (wrap_width/2)
+
+    let mouse_start_boundary_x = wrap_width/2 
+    let mouse_boundary_x = canvas_width - (wrap_width/2)
+    let wrap_left_boundary = canvas_width - wrap_width
+
+    let boundary_y = $('#canvas').height() - $('.canvas_wrap').height()
     
-    if(x_mouse > 50 && x_mouse < boundary_x) {
+    let y_mouse = e.pageY
+    let wrap_top = y_mouse - (wrap_height/2)
+    let mouse_start_boundary_y = wrap_height/2
+    let mouse_boundary_y = canvas_height - (wrap_height/2)
+    let wrap_top_boundary = canvas_height - wrap_height 
+    
+    
+    if(x_mouse > mouse_start_boundary_x && x_mouse < mouse_boundary_x) {
         $('.canvas_wrap').css('left', wrap_left + 'px')
-    } else if (x_mouse >= boundary_x){
-        $('.canvas_wrap').css('left', boundary_x + 'px')
-    } else if (x_mouse <= 50){
-        $('.canvas_wrap').css('left', x_mouse + 'px') 
+    } 
+    else if (x_mouse >= mouse_boundary_x){
+        $('.canvas_wrap').css('left', wrap_left_boundary + 'px')
+    } 
+    else if (x_mouse <= mouse_start_boundary_x){
+        $('.canvas_wrap').css('left', 0 + 'px') 
     }
     
-    if(y_mouse > 100 && y_mouse < boundary_y) {
+    if(y_mouse > mouse_start_boundary_y && y_mouse < mouse_boundary_y) {
         $('.canvas_wrap').css('top', wrap_top + 'px')
-    } else if (y_mouse >= boundary_y){
-        $('.canvas_wrap').css('top', 200 + 'px')
+    } else if (y_mouse >= mouse_boundary_y){
+        $('.canvas_wrap').css('top', wrap_top_boundary + 'px')
     } 
-    else if (y_mouse <=100){
-        $('.canvas_wrap').css('top', y_mouse + 'px') 
+    else if (y_mouse <= mouse_start_boundary_y){
+        $('.canvas_wrap').css('top', 0 + 'px') 
     }
 })
 
