@@ -100,18 +100,33 @@ $('.border_bottom_right').mousedown(function(){
         x_mouse = e.pageX
         y_mouse = e.pageY
         
-        $('.border_bottom_right').css({
-            top: y_mouse - 5,
-            left: x_mouse - 5
-        })
 
         let wrap_top = $('.canvas_wrap').offset().top
         let wrap_left = $('.canvas_wrap').offset().left
 
-        $('.canvas_wrap').css({
-            width: (x_mouse - wrap_left) + 'px',
-            height: (y_mouse - wrap_top) + 'px'
-        })   
+        let boundary_x = $('#canvas').width()
+        let boundary_y = $('#canvas').height() 
+        if(x_mouse < boundary_x){
+            $('.border_bottom_right').css({
+                top: y_mouse - 5,
+                left: x_mouse - 5
+            })
+
+            $('.canvas_wrap').css({
+                width: (x_mouse - wrap_left) + 'px',
+                height: (y_mouse - wrap_top) + 'px'
+            })  
+        } else {
+            $('.border_bottom_right').css({
+                top: boundary_y - 5,
+                left: boundary_x - 5
+            })
+            $('.canvas_wrap').css({
+                width: (boundary_x - wrap_left) + 'px',
+                height: (boundary_y - wrap_top) + 'px', 
+            })   
+        }
+         
     })
                 
    
