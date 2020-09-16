@@ -37,21 +37,21 @@ var wrap_move = function(e){
     let wrap_height = $('.canvas_wrap').height()
 
     let x_mouse = e.pageX
-    let wrap_left = x_mouse - (wrap_width/2)
+    let wrap_left_start = x_mouse - (wrap_width/2)
 
     let mouse_start_boundary_x = wrap_width/2 
     let mouse_boundary_x = canvas_width - (wrap_width/2)
     let wrap_left_boundary = canvas_width - wrap_width
 
     let y_mouse = e.pageY
-    let wrap_top = y_mouse - (wrap_height/2)
+    let wrap_top_start = y_mouse - (wrap_height/2)
     let mouse_start_boundary_y = wrap_height/2
     let mouse_boundary_y = canvas_height - (wrap_height/2)
     let wrap_top_boundary = canvas_height - wrap_height 
     
     
     if(x_mouse > mouse_start_boundary_x && x_mouse < mouse_boundary_x) {
-        $('.canvas_wrap').css('left', wrap_left + 'px')
+        $('.canvas_wrap').css('left', wrap_left_start + 'px')
     } 
     else if (x_mouse >= mouse_boundary_x){
         $('.canvas_wrap').css('left', wrap_left_boundary + 'px')
@@ -61,18 +61,23 @@ var wrap_move = function(e){
     }
     
     if(y_mouse > mouse_start_boundary_y && y_mouse < mouse_boundary_y) {
-        $('.canvas_wrap').css('top', wrap_top + 'px')
+        $('.canvas_wrap').css('top', wrap_top_start + 'px')
     } else if (y_mouse >= mouse_boundary_y){
         $('.canvas_wrap').css('top', wrap_top_boundary + 'px')
     } 
     else if (y_mouse <= mouse_start_boundary_y){
         $('.canvas_wrap').css('top', 0 + 'px') 
     }
-    let top = $('.canvas_wrap').offset().top
-    let left = $('.canvas_wrap').offset().left
+    let wrap_top = $('.canvas_wrap').offset().top
+    let wrap_left = $('.canvas_wrap').offset().left
 
-    var bg_pos = '-'+left + 'px -' + top + 'px'
+    var bg_pos = '-'+ wrap_left + 'px -' + wrap_top + 'px'
     $('.canvas_wrap').css('background-position', bg_pos)
+
+    $('.border_bottom_right').css({
+        top: wrap_top + wrap_height - 5,
+        left: wrap_left + wrap_width - 5
+    })
 }
 
 $('.canvas_wrap').mousemove(wrap_move)
@@ -85,6 +90,34 @@ $('.canvas_wrap').click(function(){
     } else {
         $('.canvas_wrap').mousemove(wrap_move) 
     }
+})
+
+$('.border_bottom_right').mousedown(function(){
+
+    $('.border_bottom_right').mousemove(function(e){
+        let x_mouse = 0
+        let y_mouse = 0
+        x_mouse = e.pageX
+        y_mouse = e.pageY
+        
+        $('.border_bottom_right').css({
+            top: y_mouse - 5,
+            left: x_mouse - 5
+        })
+
+        let wrap_top = $('.canvas_wrap').offset().top
+        let wrap_left = $('.canvas_wrap').offset().left
+
+        $('.canvas_wrap').css({
+            width: (x_mouse - wrap_left) + 'px',
+            height: (y_mouse - wrap_top) + 'px'
+        })   
+    })
+                
+   
+})
+$('.border_bottom_right').mouseup(function(){
+    $('.border_bottom_right').unbind('mousemove') 
 })
 
 $('#canvas').mouseout(function (e) {

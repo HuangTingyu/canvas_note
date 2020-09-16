@@ -1,4 +1,8 @@
 <div class="canvas_container">
     <canvas id="canvas" width="600" height="300"></canvas>
     <div class="canvas_wrap"></div>
+    <div class="border_top_left"></div>
+    <div class="border_top_right"></div>
+    <div class="border_bottom_left"></div>
+    <div class="border_bottom_right"></div>
 </div>

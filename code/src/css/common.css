@@ -25,6 +25,34 @@ canvas {
   left:0;
   /* opacity: 0.5; */
   border:dashed 1px gray;
-  z-index:999;
+  z-index:99;
   cursor: move;
+}
+
+/* .border_top_left,
+.border_top_right,
+.border_bottom_left, */
+.border_bottom_right{
+  position: absolute;
+  width:10px;
+  height:10px;
+  background: rgba(0,0,0,0.5);
+  border:1px solid #000;
+  z-index:999;
+}
+.border_top_left{
+  top:-5px;
+  left:-5px;
+}
+.border_top_right{
+  top:-5px;
+  left:95px;
+}
+.border_bottom_left{
+  top:195px;
+  left:-5px;
+}
+.border_bottom_right{
+  top:191px;
+  left: 91px;
 }
