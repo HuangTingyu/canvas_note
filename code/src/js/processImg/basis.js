@@ -1,5 +1,5 @@
 var cnv = $('#canvas')[0]
-var cxt = cnv.getContext('2d')
+var ctx = cnv.getContext('2d')
 
 import basisImgPath from 'assets/canvas.jpg'
 import testPath from 'assets/basisImg.png'
@@ -7,8 +7,8 @@ var image = new Image()
 image.src = basisImgPath
 cnv.height = 600 * (4270 / 6406)
 image.onload = function () {
-    cxt.scale(600 / 6406 , cnv.height / 4270)
-    cxt.drawImage(image, 0, 0, 6406, 4270 )
+    ctx.scale(600 / 6406 , cnv.height / 4270)
+    ctx.drawImage(image, 0, 0, 6406, 4270 )
 }
 
 $('#canvas').mouseover(function (e) {
@@ -142,7 +142,7 @@ $('#canvas').mouseout(function (e) {
 $('.btn').click(function(){
     let scale_params = 600 / 6406
     let cache_canvas = $('#cache')[0]
-    let cache_cxt = cache_canvas.getContext('2d')
+    let cache_ctx = cache_canvas.getContext('2d')
 
     let wrap_top = $('.canvas_wrap').offset().top / scale_params
     let wrap_left = $('.canvas_wrap').offset().left / scale_params
@@ -156,9 +156,10 @@ $('.btn').click(function(){
 
     console.log(wrap_left, wrap_top, wrap_width, wrap_height)
     image.onload = function () {
-        cache_cxt.scale(scale_params, scale_params)
-        // cache_cxt.drawImage(image, 0, 0, image.width, image.height )
-        cache_cxt.drawImage(image, wrap_left, wrap_top, wrap_width, wrap_height, 0, 0, wrap_width, wrap_height )
+        cache_ctx.scale(scale_params, scale_params)
+        // cache_ctx.drawImage(image, 0, 0, image.width, image.height )
+        cache_ctx.drawImage(image, wrap_left, wrap_top, wrap_width, wrap_height, 0, 0, wrap_width, wrap_height )
+        // ctx.drawImage(image, wrap_left, wrap_top, wrap_width, wrap_height, 0, 0, wrap_width, wrap_height )
     }
 
 })
