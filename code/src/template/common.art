@@ -6,3 +6,5 @@
     <div class="border_bottom_left"></div>
     <div class="border_bottom_right"></div>
 </div>
+<button class="btn">保存图片</button>
+<canvas id="cache" width="600" height="300"></canvas>

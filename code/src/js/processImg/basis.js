@@ -139,3 +139,26 @@ $('#canvas').mouseout(function (e) {
     $('#canvas').css('opacity', '1') 
 })
 
+$('.btn').click(function(){
+    let scale_params = 600 / 6406
+    let cache_canvas = $('#cache')[0]
+    let cache_cxt = cache_canvas.getContext('2d')
+
+    let wrap_top = $('.canvas_wrap').offset().top / scale_params
+    let wrap_left = $('.canvas_wrap').offset().left / scale_params
+
+    let wrap_width = $('.canvas_wrap').width() / scale_params
+    let wrap_height = $('.canvas_wrap').height() / scale_params
+
+    let image = new Image()
+    image.src = basisImgPath
+     
+
+    console.log(wrap_left, wrap_top, wrap_width, wrap_height)
+    image.onload = function () {
+        cache_cxt.scale(scale_params, scale_params)
+        // cache_cxt.drawImage(image, 0, 0, image.width, image.height )
+        cache_cxt.drawImage(image, wrap_left, wrap_top, wrap_width, wrap_height, 0, 0, wrap_width, wrap_height )
+    }
+
+})
